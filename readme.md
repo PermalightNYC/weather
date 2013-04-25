@@ -1,0 +1,2 @@
+## 24 Hour Weather App
+We're currently participating in an online [Skillshare class](http://www.skillshare.com/Design-Beautiful-Apps-iOS-App-Design-UX/771498797/1526239362) on beautiful app design. We've decided to build out our weather app. You can see the full story of app design and development on the [Skillshare website](http://www.skillshare.com/Design-Beautiful-Apps-iOS-App-Design-UX/771498797/1526239362/projects/9246/)
