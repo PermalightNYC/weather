@@ -9,7 +9,7 @@ function success(position) {
     url: apicall,
     dataType: 'jsonp',
     success: function(data) {
-      $('li#loading').hide();
+      $('li#loading').remove();
       console.log(data);
       var city = data.location.city,
       state = data.location.state;
