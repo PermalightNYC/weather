@@ -2,11 +2,12 @@
 $bottom: #88a2b3;
 $top: #c0e4fe;
 
-body {
+html,body {
   @include background(linear-gradient(top, $top, $bottom));
   color: #fff;
   font-family: 'proxima-nova', 'Helvetica Neue', Helvetica, sans-serif;
   font-weight: 100;
+  height: 100%;
   margin: 0;
   overflow: hidden;
   padding: 0;

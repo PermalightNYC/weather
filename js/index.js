@@ -28,19 +28,14 @@ function success(position) {
           hour = data.hourly_forecast[i].FCTTIME.hour;
           hoursuffix = data.hourly_forecast[i].FCTTIME.ampm;
           time = hour + hoursuffix;
-          var match = /(mostly)/.test(icon);
-          icon = icon.replace('chance','');
-          icon = icon.replace('rain','rainy');
-          if(match === true && hour >= 19) {
+          icon = icon.replace('mostly','partly');
+          if(hour >= 19 || hour < 6) {
             icon = icon + 'night';
-          } else if (match === true && hour < 19) {
-            icon = icon + 'day';
-          } else if (match === false && hour < 6 || hour >= 19) {
-            icon = icon + 'night';
-          } else {
+          } else if (hour < 19 && hour >= 6) {
             icon = icon + 'day';
           }
-          icon = icon.replace('clearnight', 'moon').replace('clearday','clear').replace('partlycloudyday', 'partlycloudy').replace('partlycloudynight','cloudynight').replace('tstormsnight','rainynight');
+          icon = icon.replace('clearnight', 'moon').replace('clearday','clear').replace('partlycloudyday', 'partlycloudy').replace('partlycloudynight','cloudynight').replace('tstormsnight','rainynight').replace('rain','rainy').replace('chance','');
+          time = time.replace('0AM','12AM')
           addTempElements(temp, time, icon);
         } // for loop
       }
