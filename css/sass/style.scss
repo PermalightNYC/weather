@@ -1,7 +1,9 @@
 @import 'compass/css3';
+$bottom: #88a2b3;
+$top: #c0e4fe;
 
 body {
-  @include background(linear-gradient(top, #333, #0c0));
+  @include background(linear-gradient(top, $top, $bottom));
   color: #fff;
   font-family: 'proxima-nova', 'Helvetica Neue', Helvetica, sans-serif;
   font-weight: 100;
@@ -24,6 +26,12 @@ ol.temps li {
 
 .temp {
   font-size: 500%;
+}
+
+.time {
+  font-size: 75%;
+  font-weight: 700;
+  letter-spacing: 0.2em;
 }
 
 .ss-icon {
