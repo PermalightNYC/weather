@@ -22,26 +22,27 @@ function success(position) {
       dataType: 'jsonp',
       success: function(data) {
         console.log(data);
+        // iterate for the next 24 hours
         for (var i = 0; i < 25; i++) {
           var temp = data.hourly_forecast[i].temp.english,
           icon = data.hourly_forecast[i].icon,
-          hour = data.hourly_forecast[i].FCTTIME.hour;
-          hoursuffix = data.hourly_forecast[i].FCTTIME.ampm;
-          time = hour + hoursuffix;
-          icon = icon.replace('mostly','partly');
+          hour = data.hourly_forecast[i].FCTTIME.hour,
+          time = data.hourly_forecast[i].FCTTIME.civil;
           if(hour >= 19 || hour < 6) {
             icon = icon + 'night';
           } else if (hour < 19 && hour >= 6) {
             icon = icon + 'day';
           }
-          icon = icon.replace('clearnight', 'moon').replace('clearday','clear').replace('partlycloudyday', 'partlycloudy').replace('partlycloudynight','cloudynight').replace('tstormsnight','rainynight').replace('rain','rainy').replace('chance','');
-          time = time.replace('0AM','12AM')
+          // icon text replacement
+          icon = icon.replace('mostly','partly').replace('clearnight', 'moon').replace('clearday','clear').replace('partlycloudyday', 'partlycloudy').replace('partlycloudynight','cloudynight').replace('tstormsnight','rainynight').replace('rain','rainy').replace('chance','');
+          time = time.replace(':00 ','');
           addTempElements(temp, time, icon);
         } // for loop
       }
     });
   }
 
+  // This function puts the elements into the dom
   function addTempElements(temp, time, icon) {
     elements = '<li><div class="temp">' + temp + '&deg;</div><div class="time">' + time + '</div><div class="ss-icon ss-forecast">' + icon + '</div></li>';
     $(elements).appendTo('.temps')
